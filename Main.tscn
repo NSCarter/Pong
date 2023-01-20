@@ -1,0 +1,133 @@
+[gd_scene format=2]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="WallTop" type="ColorRect" parent="."]
+margin_right = 1030.0
+margin_bottom = 15.0
+
+[node name="WallBottom" type="ColorRect" parent="."]
+margin_left = -1.0
+margin_top = 585.0
+margin_right = 1029.0
+margin_bottom = 600.0
+
+[node name="Divider" type="ColorRect" parent="."]
+margin_left = 505.0
+margin_top = 7.5
+margin_right = 520.0
+margin_bottom = 22.5
+
+[node name="Divider2" type="ColorRect" parent="."]
+margin_left = 505.0
+margin_top = 37.5
+margin_right = 520.0
+margin_bottom = 52.5
+
+[node name="Divider3" type="ColorRect" parent="."]
+margin_left = 505.0
+margin_top = 67.5
+margin_right = 520.0
+margin_bottom = 82.5
+
+[node name="Divider4" type="ColorRect" parent="."]
+margin_left = 505.0
+margin_top = 97.5
+margin_right = 520.0
+margin_bottom = 112.5
+
+[node name="Divider5" type="ColorRect" parent="."]
+margin_left = 505.0
+margin_top = 127.5
+margin_right = 520.0
+margin_bottom = 142.5
+
+[node name="Divider6" type="ColorRect" parent="."]
+margin_left = 505.0
+margin_top = 157.5
+margin_right = 520.0
+margin_bottom = 172.5
+
+[node name="Divider7" type="ColorRect" parent="."]
+margin_left = 505.0
+margin_top = 187.5
+margin_right = 520.0
+margin_bottom = 202.5
+
+[node name="Divider8" type="ColorRect" parent="."]
+margin_left = 504.5
+margin_top = 217.5
+margin_right = 519.5
+margin_bottom = 232.5
+
+[node name="Divider9" type="ColorRect" parent="."]
+margin_left = 505.0
+margin_top = 247.5
+margin_right = 520.0
+margin_bottom = 262.5
+
+[node name="Divider10" type="ColorRect" parent="."]
+margin_left = 505.0
+margin_top = 277.5
+margin_right = 520.0
+margin_bottom = 292.5
+
+[node name="Divider11" type="ColorRect" parent="."]
+margin_left = 505.0
+margin_top = 307.5
+margin_right = 520.0
+margin_bottom = 322.5
+
+[node name="Divider12" type="ColorRect" parent="."]
+margin_left = 505.0
+margin_top = 337.5
+margin_right = 520.0
+margin_bottom = 352.5
+
+[node name="Divider13" type="ColorRect" parent="."]
+margin_left = 505.0
+margin_top = 367.5
+margin_right = 520.0
+margin_bottom = 382.5
+
+[node name="Divider14" type="ColorRect" parent="."]
+margin_left = 505.0
+margin_top = 397.5
+margin_right = 520.0
+margin_bottom = 412.5
+
+[node name="Divider15" type="ColorRect" parent="."]
+margin_left = 505.0
+margin_top = 427.5
+margin_right = 520.0
+margin_bottom = 442.5
+
+[node name="Divider16" type="ColorRect" parent="."]
+margin_left = 505.0
+margin_top = 457.5
+margin_right = 520.0
+margin_bottom = 472.5
+
+[node name="Divider17" type="ColorRect" parent="."]
+margin_left = 505.0
+margin_top = 487.5
+margin_right = 520.0
+margin_bottom = 502.5
+
+[node name="Divider18" type="ColorRect" parent="."]
+margin_left = 505.0
+margin_top = 517.5
+margin_right = 520.0
+margin_bottom = 532.5
+
+[node name="Divider19" type="ColorRect" parent="."]
+margin_left = 505.0
+margin_top = 547.5
+margin_right = 520.0
+margin_bottom = 562.5
+
+[node name="Divider20" type="ColorRect" parent="."]
+margin_left = 505.0
+margin_top = 577.5
+margin_right = 520.0
+margin_bottom = 592.5
