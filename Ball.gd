@@ -2,8 +2,16 @@ extends CharacterBody2D
 
 
 func _ready():
-	position = Vector2(position.x, randi_range(15, 585))
-	velocity = Vector2(350, randi_range(-100, 100))
+	get_parent().restarted.connect(_restart)
+	_restart(2)
+
+
+func _restart(player):
+	position = Vector2(505, randi_range(15, 585))
+	velocity = Vector2(350, randi_range(-170, 170))
+	
+	if player == 1:
+		velocity.x *= -1
 
 
 func _physics_process(delta):
@@ -18,10 +26,8 @@ func _physics_process(delta):
 		var collider = collision.get_collider()
 		
 		if collider.name == "Player1" or collider.name == "Player2":
-			
 			var paddle = collider as StaticBody2D
 			var paddle_pos = paddle.position
-			
 			var pos_on_paddle = collision_pos.y - paddle_pos.y
 			
 			if (pos_on_paddle < 47.5):

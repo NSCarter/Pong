@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bjxsirvfqhk4y"]
+[gd_scene load_steps=5 format=3 uid="uid://bjxsirvfqhk4y"]
 
+[ext_resource type="Script" path="res://Main.gd" id="1_7xw42"]
 [ext_resource type="PackedScene" uid="uid://k6b1qyjbh8j5" path="res://Paddle.tscn" id="1_ynixy"]
 [ext_resource type="PackedScene" uid="uid://by6ln36m4gd4e" path="res://Ball.tscn" id="2_foela"]
 
@@ -7,6 +8,7 @@
 size = Vector2(1024, 15)
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_7xw42")
 
 [node name="Player1" parent="." instance=ExtResource("1_ynixy")]
 position = Vector2(0, 252.5)
