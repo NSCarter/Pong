@@ -18,9 +18,9 @@ func _physics_process(delta):
 	var collision = move_and_collide(velocity * delta)
 	if collision:
 		if velocity.x > 0:
-			velocity.x += 5
+			velocity.x += 10
 		else:
-			velocity.x -= 5	
+			velocity.x -= 10
 		
 		var collision_pos = collision.get_position()
 		var collider = collision.get_collider()
