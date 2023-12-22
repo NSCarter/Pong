@@ -4,6 +4,9 @@ var score = Vector2(0, 0)
 signal restarted(player)
 
 
+func _ready():
+	remove_child($Player2)
+
 func _process(_delta):
 	var ball_pos = $Ball.position.x
 	
