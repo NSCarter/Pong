@@ -11,7 +11,7 @@ func _ready():
 	get_parent().resumed.connect(func(): _paused = false)
 
 
-func _process(delta):
+func _process(_delta):
 	if not _paused:
 		var success = randi_range(1, 4) < 4
 		
