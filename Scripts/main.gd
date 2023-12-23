@@ -1,24 +1,27 @@
 extends Node2D
 
-var score = Vector2(0, 0)
-var game_started = false
+
 signal restarted(player)
 signal paused
 signal resumed
 
+var _score = Vector2(0, 0)
+var _game_started = false
+
 
 func _ready():
-	$Menu.start_game.connect(_start_game)
+	$Menu.game_started.connect(_start_game)
+
 
 func _process(_delta):
 	var ball_pos = $Ball.position.x
 	
 	if ball_pos < 0:
-		score[1] += 1
+		_score[1] += 1
 		restarted.emit(1)
 		_update_score_display(2)
 	elif ball_pos > 1024:
-		score[0] += 1
+		_score[0] += 1
 		restarted.emit(2)
 		_update_score_display(1)
 	
@@ -30,7 +33,7 @@ func _process(_delta):
 
 
 func _update_score_display(player):
-	var score_to_update = score[player-1]
+	var score_to_update = _score[player-1]
 	
 	if score_to_update != 0:
 		$AudioStreamPlayer2D.play()
@@ -63,7 +66,7 @@ func _start_game(players):
 	await $StartTimer.timeout
 	
 	restarted.emit(2)
-	game_started = true
+	_game_started = true
 
 
 func _create_player_2_paddle(players):
@@ -81,7 +84,7 @@ func _create_player_2_paddle(players):
 
 
 func _reset_score():
-	score = Vector2(0, 0)
+	_score = Vector2(0, 0)
 	_update_score_display(1)
 	_update_score_display(2)
 
@@ -92,7 +95,7 @@ func _pause():
 
 
 func _resume():
-	if game_started:
+	if _game_started:
 		$Menu.hide()
 		$Ball.visible = true
 		$StartTimer.start()
