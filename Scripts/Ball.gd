@@ -51,3 +51,5 @@ func _physics_process(delta):
 				velocity = Vector2(velocity.x * -1, (pos_on_paddle - 47.5) * 4)
 		else:
 			velocity = velocity.bounce(collision.get_normal())
+			
+		$AudioStreamPlayer2D.play()

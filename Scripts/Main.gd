@@ -32,6 +32,9 @@ func _process(_delta):
 func _update_score_display(player):
 	var score_to_update = score[player-1]
 	
+	if score_to_update != 0:
+		$AudioStreamPlayer2D.play()
+	
 	if score_to_update >= 10:
 		var tens = floor(score_to_update / 10)
 		score_to_update = int(score_to_update) % 10
