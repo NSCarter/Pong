@@ -1,17 +1,32 @@
 extends CharacterBody2D
 
 
+var stored_velocity: Vector2
+
+
 func _ready():
 	get_parent().restarted.connect(_restart)
-	_restart(2)
+	get_parent().paused.connect(_pause)
+	get_parent().resumed.connect(_resume)
 
 
 func _restart(player):
+	visible = true
 	position = Vector2(505, randi_range(15, 585))
 	velocity = Vector2(350, randi_range(-170, 170))
 	
 	if player == 1:
 		velocity.x *= -1
+
+
+func _pause():
+	stored_velocity = velocity
+	velocity = Vector2(0, 0)
+	visible = false
+
+
+func _resume():
+	velocity = stored_velocity
 
 
 func _physics_process(delta):

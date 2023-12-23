@@ -1,11 +1,14 @@
 extends Node2D
 
 var score = Vector2(0, 0)
+var game_started = false
 signal restarted(player)
+signal paused
+signal resumed
 
 
 func _ready():
-	remove_child($Player2)
+	$Menu.start_game.connect(_start_game)
 
 func _process(_delta):
 	var ball_pos = $Ball.position.x
@@ -18,6 +21,12 @@ func _process(_delta):
 		score[0] += 1
 		restarted.emit(2)
 		_update_score_display(1)
+	
+	if Input.is_action_just_pressed("open_menu"):
+		if $Menu.is_visible():
+			_resume()
+		else:
+			_pause()
 
 
 func _update_score_display(player):
@@ -34,3 +43,55 @@ func _update_score_display(player):
 	var ones_node_name = "Player" + str(player) + "ScoreOnes"
 	var ones_node = get_node(ones_node_name) as TextureRect
 	ones_node.texture = load("res://Assests/Images/" + str(score_to_update) + ".png")
+
+
+func _start_game(players):
+	var node_to_remove = get_node("Player2")
+	remove_child(node_to_remove)
+	
+	_create_player_2_paddle(players)
+	_reset_score()
+	
+	$Player1.position = Vector2(0, 252.5)
+	$Ball.position = Vector2(505, 277.5)
+	
+	$Menu.hide()
+	$StartTimer.start()
+	await $StartTimer.timeout
+	
+	restarted.emit(2)
+	game_started = true
+
+
+func _create_player_2_paddle(players):
+	var paddle: StaticBody2D
+	
+	if players == 1:
+		paddle = load("res://Scenes/ComputerPaddle.tscn").instantiate()
+	else:
+		paddle = load("res://Scenes/Paddle.tscn").instantiate()
+		paddle.player = 2
+		
+	paddle.position = Vector2(1004, 252.2)
+	paddle.name = "Player2"
+	add_child(paddle)
+
+
+func _reset_score():
+	score = Vector2(0, 0)
+	_update_score_display(1)
+	_update_score_display(2)
+
+
+func _pause():
+	$Menu.show()
+	paused.emit()
+
+
+func _resume():
+	if game_started:
+		$Menu.hide()
+		$Ball.visible = true
+		$StartTimer.start()
+		await $StartTimer.timeout
+		resumed.emit()
